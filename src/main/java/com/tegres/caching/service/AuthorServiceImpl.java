@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
 
-@Service
+@Service(ComponentConstants.SERVICE_AUTHOR)
 public class AuthorServiceImpl implements AuthorService {
 
     @Cacheable(cacheNames = Caches.AUTHORS_CACHE,

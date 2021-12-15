@@ -1,9 +1,11 @@
 package com.tegres.caching.resource;
 
+import com.tegres.caching.constants.ComponentConstants;
 import com.tegres.caching.service.CacheService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.CacheManager;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,8 @@ public class CacheResource {
     private CacheService cacheService;
 
     @Autowired
-    public CacheResource(CacheManager cacheManager, CacheService cacheService) {
+    public CacheResource(@Qualifier(ComponentConstants.INMEMORY_CACHE_MANAGER) CacheManager cacheManager,
+                         @Qualifier(ComponentConstants.SERVICE_CACHE) CacheService cacheService) {
         this.cacheManager = cacheManager;
         this.cacheService = cacheService;
     }
